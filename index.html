@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple App for HTML to hybrid Mobile App</title>
+    <h2>Mobile Application Development Practical Exercise--using jquery animation; javascript function, jquery event etc</h2>
+    <h3>{created to be done as exercise in class}</h3>
+
+    <style language="stylesheet" type="text/css">
+        body{
+            background: #000;
+            color: #fff;
+            text-align: center;
+            line-height: 2em;
+            font-family: arial;
+        }
+        input[type=number]{
+            padding: 15px;
+            font-size: 30px;
+            text-align: center;
+            background: #e4e4e4;
+        }
+        h1,h2{text-align: center;}
+        #div1{
+            margin: auto;
+            border: 3px black;
+            background-color: blue;
+        }
+    </style>
+
+
+    <script language="javascript" type="text/javascript">
+        function CustomerCommission (slider, amount)
+        {
+            var Discounted_Amount = document.getElementById('Discounted_Amount');
+            var slideVal = document.getElementById('slideVal');
+            var amount = document.getElementById(amount).value;
+            var prcnt = slider * 0.01;
+            Discounted_Amount.innerHTML = "Tshs. " +(amount * prcnt).toFixed(2);
+            slideVal.innerHTML = slider + "%";
+        
+
+        }
+      
+        let Visible=true;
+       function Logo(){
+        
+            const logo=document.getElementById('logo');
+            if(Visible){
+                logo.src="dog.jpg";
+                logo.style.display="none";
+
+            }
+            else{
+                logo.src="dog2.jpg";
+                logo.style.display="inline";
+            }
+            Visible=!Visible;
+            
+        } 
+
+        function changePosition()
+        {
+            const logo=document.getElementById("logo");
+            if (movedR)
+            logo.style.position="relative";
+            logo.style.left="100px";
+            logo.style.right="20px";
+        }
+        
+
+        
+        
+    </script>
+
+    <style>
+        header{
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px #000 solid;
+            margin-bottom: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1>HYBRID PRACTICAL WORK FOR DM20 CLASS-CTT06214</h1>
+    </header>
+    <p id="italic">
+        CLASS_UCC&apos;s CALCULATOR 
+    </p>
+    <img src="dog.jpg" id="logo" alt="dog picture" class="imglogo1" width="200px" height="190px"><br>
+    <button onclick="Logo()">Disappearing the LoGO</button> 
+    <button onclick="changePosition()">Change position</button>
+    <button>italize texts</button>
+
+    <div id="div1">
+        <h3>Enter a BILL amount of the product to purchase in Tanzania in Tshs and slide to the percentage you would like the discounted CUTOFF</h3>
+    
+    </div>
+    <input type="number" id="amount" oninput="CustomerCommission(document.getElementById('slider').value,'amount')"><br>
+
+    <h3>slide the slider bellow to the <b>%</b> you want:</h3>
+    <input type="range" min="0" max="100" value="0" step="1" id="slider" oninput="CustomerCommission(this.value, 'amount')" style="width:400px;">
+
+    <span id="slideVal">0%</span>
+    <h2>Discounted_Amount =<span id="Discounted_Amount"></span></h2>
+</body>
+</html>
